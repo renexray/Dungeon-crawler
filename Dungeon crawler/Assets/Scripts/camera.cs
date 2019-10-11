@@ -24,14 +24,14 @@ public class camera : MonoBehaviour
       }*/
     void FixedUpdate(){
         Vector3 viewPosition = GetComponent<Camera>(). WorldToViewportPoint(LookAt.transform.position);
-        if (viewPosition.x > 0.9f){
+        if (viewPosition.x > 1f){
             transform.position = new Vector3(
                 transform.position.x + 10,
                 transform.position.y + offset.y,
                 transform.position.z + offset.z
             );
         }
-        else if (viewPosition.x < 0.1f){
+        else if (viewPosition.x < 0f){
             transform.position = new Vector3(
                 transform.position.x + -10,
                 transform.position.y + offset.y,
