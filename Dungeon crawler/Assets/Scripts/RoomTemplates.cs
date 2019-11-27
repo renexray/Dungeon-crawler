@@ -22,7 +22,16 @@ public class RoomTemplates : MonoBehaviour
     private bool spawnedBoss;
     public GameObject Boss;
     public GameObject Monster;
+    
+    //public GameObject Dungeon;
 
+    /*void Start(){
+        Invoke("Savenew", 5f);
+    }
+    void Savenew(){
+        GameObject duplicate = Instantiate(Dungeon);
+        Dungeon.SetActive(false);
+    }*/
     void Update()
     {
         if (waitTime <=0 && spawnedBoss == false)

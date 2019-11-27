@@ -4,27 +4,24 @@ using UnityEngine;
 
 public class EnemyMove : MonoBehaviour
 {
-Renderer m_Renderer;
+//Renderer m_Renderer;
 public float speed;
 private Transform target;
 
     // Start is called before the first frame update
     void Start()
     {
-        m_Renderer = GetComponent<Renderer>();
-        target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        //m_Renderer = GetComponent<Renderer>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        /*if (isVisible){
-        speed = 2;
-        }
-        else {
-        speed = 0;
-        }*/
+        if(GetComponent<Renderer>().isVisible){
+        target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+        }
+        //transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
     }
     
     void OnTriggerEnter(Collider other)

@@ -2,6 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+save    Player items (list)
+        Inventory (list)
+        Gold (int)
+        Score (int)
+*/
 [System.Serializable]
 public class Saving
 {

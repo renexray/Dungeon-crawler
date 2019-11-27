@@ -95,15 +95,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 6780225861364990502, guid: 0f3912d3f8f09d7498d08b1836bf27f5,
     type: 3}
-  minDamage: 20
-  maxDamage: 30
-  projectileForce: 2
-  fireSpeed: 20
-  fireRate: 30
-  Player: {fileID: 0}
-  speed: 0
-  target: {x: 0, y: 0, z: 0}
-  target1: {fileID: 0}
 --- !u!114 &7862005283377319223
 MonoBehaviour:
   m_ObjectHideFlags: 0

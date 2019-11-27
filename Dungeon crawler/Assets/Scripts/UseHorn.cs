@@ -6,6 +6,7 @@ public class UseHorn : MonoBehaviour
 {
     private Transform playerPos;
     public GameObject sword;
+    //public GameObject hornhead;
 
     private void Start()
     {
@@ -15,6 +16,10 @@ public class UseHorn : MonoBehaviour
     public void Use() {
 
         Instantiate(sword, playerPos.position, sword.transform.rotation, playerPos.transform);
+
+
+        //sword.SetActive(true);
+
         Destroy(gameObject);
     }
 }
