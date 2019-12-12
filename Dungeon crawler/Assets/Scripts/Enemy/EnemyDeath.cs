@@ -34,19 +34,5 @@ public class EnemyDeath : MonoBehaviour
             Instantiate(lootdrop, transform.position, Quaternion.identity);
         }
     }
-     public void SaveFile4()
-    {
-        SaveToFile.SaveFile4(this);
-    }
-    public void LoadFile4()
-    {
-        Saving data = SaveToFile.LoadFile4();
-        health = data.health;
-        Vector3 position;
-        position.x = data.position[0];
-        position.y = data.position[1];
-        position.z = data.position[2];
-        transform.position = position;
-    }
 
 }

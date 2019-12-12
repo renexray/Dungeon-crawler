@@ -4,6 +4,26 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 public class SaveToFile
 {
+    static readonly string SAVE_FILE = "player.dat";
+                                               //01234567890123456789012345678901
+    static readonly string JSON_ENCRYPTED_KEY = "#kJ83DAlowjkf39(#($%0_+[]:#dDA'a";
+
+    /*void Start()
+    {
+        string json = JsonUtility.ToJson(data);
+
+        Rijndael crypto = new Rijndael();
+        byte[] soup = crypto.Encrypt(json, JSON_ENCRYPTED_KEY);
+
+        string filename = Path.Combine(Application.persistentDataPath, SAVE_FILE);
+
+        if (File.Exists(filename))
+        {
+            File.Delete(filename);
+        }
+
+        File.WriteAllBytes(filename, soup);
+    }*/
     public static void SaveFile(Health player)
     {
         BinaryFormatter formatter = new BinaryFormatter();
@@ -15,35 +35,13 @@ public class SaveToFile
         formatter.Serialize(stream, data);
         stream.Close();
     }
-    public static void SaveFile2(loadLevel player)
+    public static void SaveFile3(levelcount player)
     {
         BinaryFormatter formatter = new BinaryFormatter();
-        string path = Application.persistentDataPath + "/player2.oof";
+        string path = Application.persistentDataPath + "/player3.oof";
         FileStream stream = new FileStream(path, FileMode.Create);
 
         Saving data = new Saving(player);
-
-        formatter.Serialize(stream, data);
-        stream.Close();
-    }
-    public static void SaveFile3(RoomTemplates enemy)
-    {
-        BinaryFormatter formatter = new BinaryFormatter();
-        string path = Application.persistentDataPath + "/enemy.oof";
-        FileStream stream = new FileStream(path, FileMode.Create);
-
-        Saving data = new Saving(enemy);
-
-        formatter.Serialize(stream, data);
-        stream.Close();
-    }
-    public static void SaveFile4(EnemyDeath enemy)
-    {
-        BinaryFormatter formatter = new BinaryFormatter();
-        string path = Application.persistentDataPath + "/enemy1.oof";
-        FileStream stream = new FileStream(path, FileMode.Create);
-
-        Saving data = new Saving(enemy);
 
         formatter.Serialize(stream, data);
         stream.Close();
@@ -65,9 +63,9 @@ public class SaveToFile
             return null;
         }
     }
-    public static Saving LoadFile2 ()
+    public static Saving LoadFile3()
     {
-        string path = Application.persistentDataPath + "/player2.oof";
+        string path = Application.persistentDataPath + "/player3.oof";
         if (File.Exists(path))
         {
             BinaryFormatter formatter = new BinaryFormatter();
@@ -76,41 +74,8 @@ public class SaveToFile
             stream.Close();
             return data;
 
-        }else
-        {
-            Debug.LogError("Save file not found in " + path);
-            return null;
         }
-    }
-    public static Saving LoadFile3 ()
-    {
-        string path = Application.persistentDataPath + "/enemy.oof";
-        if (File.Exists(path))
-        {
-            BinaryFormatter formatter = new BinaryFormatter();
-            FileStream stream = new FileStream(path, FileMode.Open);
-            Saving data = formatter.Deserialize(stream) as Saving;
-            stream.Close();
-            return data;
-
-        }else
-        {
-            Debug.LogError("Save file not found in " + path);
-            return null;
-        }
-    }
-    public static Saving LoadFile4 ()
-    {
-        string path = Application.persistentDataPath + "/enemy1.oof";
-        if (File.Exists(path))
-        {
-            BinaryFormatter formatter = new BinaryFormatter();
-            FileStream stream = new FileStream(path, FileMode.Open);
-            Saving data = formatter.Deserialize(stream) as Saving;
-            stream.Close();
-            return data;
-
-        }else
+        else
         {
             Debug.LogError("Save file not found in " + path);
             return null;

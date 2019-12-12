@@ -166,21 +166,3 @@ MonoBehaviour:
         Id: 0
         buffs: []
       amount: 0
-    - ID: -1
-      item:
-        Name: 
-        Id: 0
-        buffs: []
-      amount: 0
-    - ID: -1
-      item:
-        Name: 
-        Id: 0
-        buffs: []
-      amount: 0
-    - ID: -1
-      item:
-        Name: 
-        Id: 0
-        buffs: []
-      amount: 0

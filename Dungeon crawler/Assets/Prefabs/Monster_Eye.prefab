@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 4710899686686176682}
   m_Layer: 0
   m_Name: Monster_Eye
-  m_TagString: Untagged
+  m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -118,6 +118,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -153,7 +154,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65b11f8732ba73f48a90aa10320961e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
+  ChaseSpeed: 5
+  Range: 5
 --- !u!114 &4710899686686176693
 MonoBehaviour:
   m_ObjectHideFlags: 0
