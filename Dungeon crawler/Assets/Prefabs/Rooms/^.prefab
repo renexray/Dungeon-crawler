@@ -290,6 +290,8 @@ Transform:
   m_Children:
   - {fileID: 6582790338891652236}
   - {fileID: 2613616052611689020}
+  - {fileID: 751999583179489523}
+  - {fileID: 6856741078719003384}
   m_Father: {fileID: 3008700842118260729}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1935,3 +1937,153 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!1001 &1383564522457622502
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 9219971333197924009}
+    m_Modifications:
+    - target: {fileID: 5484083851333770526, guid: baec42e075b05ea4bb9c0c6054d8527f,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5484083851333770526, guid: baec42e075b05ea4bb9c0c6054d8527f,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5484083851333770526, guid: baec42e075b05ea4bb9c0c6054d8527f,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.6934744
+      objectReference: {fileID: 0}
+    - target: {fileID: 5484083851333770526, guid: baec42e075b05ea4bb9c0c6054d8527f,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5484083851333770526, guid: baec42e075b05ea4bb9c0c6054d8527f,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5484083851333770526, guid: baec42e075b05ea4bb9c0c6054d8527f,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5484083851333770526, guid: baec42e075b05ea4bb9c0c6054d8527f,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5484083851333770526, guid: baec42e075b05ea4bb9c0c6054d8527f,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5484083851333770526, guid: baec42e075b05ea4bb9c0c6054d8527f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5484083851333770526, guid: baec42e075b05ea4bb9c0c6054d8527f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5484083851333770526, guid: baec42e075b05ea4bb9c0c6054d8527f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7703343455355024125, guid: baec42e075b05ea4bb9c0c6054d8527f,
+        type: 3}
+      propertyPath: m_Name
+      value: Monster_Pumpkin
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: baec42e075b05ea4bb9c0c6054d8527f, type: 3}
+--- !u!4 &6856741078719003384 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5484083851333770526, guid: baec42e075b05ea4bb9c0c6054d8527f,
+    type: 3}
+  m_PrefabInstance: {fileID: 1383564522457622502}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &5076896629715590637
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 9219971333197924009}
+    m_Modifications:
+    - target: {fileID: 5484083851333770526, guid: baec42e075b05ea4bb9c0c6054d8527f,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5484083851333770526, guid: baec42e075b05ea4bb9c0c6054d8527f,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5484083851333770526, guid: baec42e075b05ea4bb9c0c6054d8527f,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.6934744
+      objectReference: {fileID: 0}
+    - target: {fileID: 5484083851333770526, guid: baec42e075b05ea4bb9c0c6054d8527f,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5484083851333770526, guid: baec42e075b05ea4bb9c0c6054d8527f,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5484083851333770526, guid: baec42e075b05ea4bb9c0c6054d8527f,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5484083851333770526, guid: baec42e075b05ea4bb9c0c6054d8527f,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5484083851333770526, guid: baec42e075b05ea4bb9c0c6054d8527f,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5484083851333770526, guid: baec42e075b05ea4bb9c0c6054d8527f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5484083851333770526, guid: baec42e075b05ea4bb9c0c6054d8527f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5484083851333770526, guid: baec42e075b05ea4bb9c0c6054d8527f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7703343455355024125, guid: baec42e075b05ea4bb9c0c6054d8527f,
+        type: 3}
+      propertyPath: m_Name
+      value: Monster_Pumpkin (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: baec42e075b05ea4bb9c0c6054d8527f, type: 3}
+--- !u!4 &751999583179489523 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5484083851333770526, guid: baec42e075b05ea4bb9c0c6054d8527f,
+    type: 3}
+  m_PrefabInstance: {fileID: 5076896629715590637}
+  m_PrefabAsset: {fileID: 0}

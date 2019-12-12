@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+﻿/*using UnityEngine;
 using System.Collections;
 using System.IO;
 
@@ -14,11 +14,7 @@ public class Serializer : MonoBehaviour
     {
         SaveData data = new SaveData()
         {
-            name = "Sloan",
-            armour = 5,
-            items = new System.Collections.Generic.List<string>(),
-            position = player.transform.position,
-            rotation = player.transform.rotation
+            
         };
 
         data.items.Add("Sword");
@@ -59,4 +55,4 @@ public class Serializer : MonoBehaviour
     
 
 
-}
+}*/

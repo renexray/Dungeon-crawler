@@ -8,6 +8,7 @@ public class Health : MonoBehaviour
     Image life;
     float maxHealth=100f;
     public static float healthlife;
+    public GameObject GameOver;
     void Start()
     {
         life =GetComponent<Image>();
@@ -18,6 +19,11 @@ public class Health : MonoBehaviour
     void Update()
     {
         life.fillAmount = healthlife / maxHealth;
+        if (healthlife <= 0f) 
+        {
+            GameOver.SetActive(true);
+            Time.timeScale = 0.000001f;
+        }
     }
     public void SaveFile()
     {
