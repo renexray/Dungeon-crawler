@@ -12,6 +12,7 @@ public class RoomTemplates : MonoBehaviour
     public GameObject[] pRooms;
     public GameObject[] vRooms;
     public GameObject[] qRooms;
+    public GameObject[] first;
 
     public GameObject cRoom;
 

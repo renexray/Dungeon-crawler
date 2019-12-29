@@ -20,4 +20,11 @@ public class loadLevel : MonoBehaviour
             Time.timeScale = 0.000001f;
         }
     }
+    public void myload()
+    {
+        levelcount.scorevalue += 1;
+        life.SaveFile();
+        inventory.Save();
+        level.datasave();
+    }
 }

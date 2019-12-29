@@ -55,9 +55,9 @@ private Transform target;
     // what our current speed is (get only)
     float CurrentSpeed;
 
-    private void Start()
+    /*private void Start()
     {
-        Player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        //Player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
     }
     void Update()
     {
@@ -67,5 +67,5 @@ private Transform target;
             CurrentSpeed = ChaseSpeed * Time.deltaTime; // set the CurrentSpeed to ChaseSpeed and multiply by Time.deltaTime (this prevents it from moving based on FPS)
             transform.position = Vector3.MoveTowards(transform.position, Player.position, CurrentSpeed);  // set this game objects position to the Player's position at the speed of CurrentSpeed
         }
-    }
+    }*/
 }

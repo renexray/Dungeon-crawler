@@ -1,0 +1,46 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using Mirror;
+
+public class PlayerSetup : NetworkBehaviour
+{
+
+    [SerializeField]
+    Behaviour[] componentsToDisable;
+
+    Camera sceneCamera;
+
+    void Start()
+    {
+        // Disable components that should only be
+        // active on the player that we control
+        if (!isLocalPlayer)
+        {
+            for (int i = 0; i < componentsToDisable.Length; i++)
+            {
+                componentsToDisable[i].enabled = false;
+            }
+        }
+        else
+        {
+            // We are the local player: Disable the scene camera
+            sceneCamera = Camera.main;
+            if (sceneCamera != null)
+            {
+                sceneCamera.gameObject.SetActive(false);
+            }
+        }
+    }
+
+    // When we are destroyed
+    void OnDisable()
+    {
+        // Re-enable the scene camera
+        if (sceneCamera != null)
+        {
+            sceneCamera.gameObject.SetActive(true);
+        }
+    }
+
+}

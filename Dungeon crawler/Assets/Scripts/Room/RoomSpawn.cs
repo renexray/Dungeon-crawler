@@ -26,8 +26,11 @@ public class RoomSpawn : MonoBehaviour
     void Spawn(){
     
     if (spawned == false){
-
-    if(openingDirection == 1){
+    if(openingDirection == 9){
+        rand = Random.Range(0, templates.first.Length);
+        Instantiate(templates.first[rand], transform.position, templates.first[rand].transform.rotation);
+    }
+    else if(openingDirection == 1){
         rand = Random.Range(0, templates.vRooms.Length);
         Instantiate(templates.vRooms[rand], transform.position, templates.vRooms[rand].transform.rotation);
     }

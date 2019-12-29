@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -52,5 +53,10 @@ public class camera : MonoBehaviour
                 transform.position.z + offset.z
             );
         }
+    }
+
+    internal Vector3 ScreenToWorldPoint(Vector3 mousePosition)
+    {
+        throw new NotImplementedException();
     }
 }
