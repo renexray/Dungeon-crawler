@@ -37,9 +37,6 @@ public class NetworkCustom : NetworkManager
 
     public override void OnClientConnect(NetworkConnection conn)
     {
-        NetworkMessage test = new NetworkMessage();
-        test.chosenClass = chosenCharacter;
-
         ClientScene.AddPlayer(conn);
     }
 
