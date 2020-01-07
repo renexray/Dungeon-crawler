@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-public class loadLevel : MonoBehaviour
+using Mirror;
+public class loadLevel : NetworkBehaviour
 {
     public Health life;
     public InventoryObject inventory;
@@ -16,8 +17,10 @@ public class loadLevel : MonoBehaviour
             life.SaveFile();
             inventory.Save();
             level.datasave();
-            SceneManager.LoadScene("Game"); //Load scene called Game
-            Time.timeScale = 0.000001f;
+            //SceneManager.LoadScene("Game"); //Load scene called Game
+            //Time.timeScale = 0.000001f;
+            transform.position = Vector3.zero;
+
         }
     }
     public void myload()

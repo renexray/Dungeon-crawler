@@ -11,6 +11,9 @@ public class PlayerObject : NetworkBehaviour
     private float movementSpeed = 5f;
     public GameObject projectile;
     private Transform playerPos;
+
+    public static bool GamePause = false;
+    public GameObject PauseMenu;
     void Start()
     {
         playerPos = GetComponent<Transform>();
@@ -36,6 +39,17 @@ public class PlayerObject : NetworkBehaviour
         {
             CmdFire();
         }
+        if (Input.GetKeyDown("e"))
+        {
+            if (GamePause == true)
+            {
+                CmdResume();
+            }
+            else
+            {
+                CmdStop();
+            }
+        }
     }
     [Command]
     void CmdFire()
@@ -43,6 +57,18 @@ public class PlayerObject : NetworkBehaviour
         Instantiate(projectile, playerPos.position, Quaternion.identity);
         GameObject item = (GameObject)Instantiate(projectile, playerPos.position, Quaternion.identity);
         NetworkServer.Spawn(item);
+    }
+    [Command]
+    public void CmdResume()
+    {
+        PauseMenu.SetActive(false);
+        GamePause = false;
+    }
+    [Command]
+    public void CmdStop()
+    {
+        PauseMenu.SetActive(true);
+        GamePause = true;
     }
 
 }

@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Mirror;
 
-public class Health : MonoBehaviour
+public class Health : NetworkBehaviour
 {
     Image life;
     float maxHealth=100f;
@@ -21,8 +22,7 @@ public class Health : MonoBehaviour
         life.fillAmount = healthlife / maxHealth;
         if (healthlife <= 0f) 
         {
-            GameOver.SetActive(true);
-            Time.timeScale = 0.000001f;
+            RpcRespaw();
         }
     }
     public void SaveFile()
@@ -33,5 +33,13 @@ public class Health : MonoBehaviour
     {
         Saving data = SaveToFile.LoadFile();
         healthlife = data.healthlife;
+    }
+
+    [Client]
+    void RpcRespaw() {
+        if (!base.hasAuthority)
+        {
+            transform.position = Vector3.zero;
+        }
     }
 }
