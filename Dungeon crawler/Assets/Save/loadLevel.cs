@@ -17,7 +17,7 @@ public class loadLevel : NetworkBehaviour
             life.SaveFile();
             inventory.Save();
             level.datasave();
-            //SceneManager.LoadScene("Game"); //Load scene called Game
+            SceneManager.LoadScene("Game"); //Load scene called Game
             //Time.timeScale = 0.000001f;
             transform.position = Vector3.zero;
 
@@ -25,7 +25,6 @@ public class loadLevel : NetworkBehaviour
     }
     public void myload()
     {
-        levelcount.scorevalue += 1;
         life.SaveFile();
         inventory.Save();
         level.datasave();

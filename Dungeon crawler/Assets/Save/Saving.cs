@@ -5,12 +5,12 @@ using UnityEngine;
 [System.Serializable]
 public class Saving
 {
-    public float healthlife;
+    public int healthlife;
     public int scorevalue;
 
     public Saving(Health player)
     {
-        healthlife=Health.healthlife;
+        //healthlife=Health.currenthealth;
     }
     public Saving(levelcount player)
     {

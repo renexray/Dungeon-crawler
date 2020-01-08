@@ -3,7 +3,31 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyMove : MonoBehaviour
-{/*
+{
+ 
+    int MoveSpeed = 4;
+    int MaxDist = 10;
+    int MinDist = 5;
+
+    void Start()
+    {
+
+    }
+    /*
+    void Update()
+    {
+        GameObject go = GameObject.FindGameObjectWithTag("Player");
+
+        if (Vector3.Distance(transform.position, go.transform.position) >= MinDist)
+        {
+
+            transform.position += transform.forward * MoveSpeed * Time.deltaTime;
+
+        }
+    }
+    */
+    
+    /*
 //Renderer m_Renderer;
 public float speed;
 private Transform target;
@@ -43,6 +67,7 @@ private Transform target;
             Debug.Log(speed);
     }
     }*/
+    /*
  // Who we are chasing
     private Transform Player;
 
@@ -54,7 +79,7 @@ private Transform target;
 
     // what our current speed is (get only)
     float CurrentSpeed;
-
+    */
     /*private void Start()
     {
         //Player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();

@@ -13,13 +13,13 @@ public class levelcount : MonoBehaviour
 
 
 
-    public static int scorevalue = 1;
+    public static int scorevalue;
     Text score;
     // Start is called before the first frame update
     public void Start()
     {
         score = GetComponent<Text>();
-        scorevalue = 1;
+        scorevalue = 0;
     }
 
 

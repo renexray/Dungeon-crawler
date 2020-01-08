@@ -42,7 +42,7 @@ namespace Mirror
             if (!showGUI)
                 return;
 
-            GUILayout.BeginArea(new Rect(350 + offsetX, 200 + offsetY, 150, 9999));
+            GUILayout.BeginArea(new Rect(800 + offsetX, 200 + offsetY, 150, 9999));
             if (!NetworkClient.isConnected && !NetworkServer.active)
             {
                 if (!NetworkClient.active)
@@ -56,17 +56,17 @@ namespace Mirror
                         }
                     }
                     GUILayout.EndArea();
-                    GUILayout.BeginArea(new Rect(350 + offsetX, 250 + offsetY, 150, 9999));
+                    GUILayout.BeginArea(new Rect(800 + offsetX, 250 + offsetY, 150, 9999));
                     // LAN Client + IP
                     GUILayout.Label("OR");
                     GUILayout.EndArea();
-                    GUILayout.BeginArea(new Rect(350 + offsetX, 300 + offsetY, 150, 9999));
+                    GUILayout.BeginArea(new Rect(800 + offsetX, 300 + offsetY, 150, 9999));
                     if (GUILayout.Button("LAN Client"))
                     {
                         manager.StartClient();
                     }
                     GUILayout.EndArea();
-                    GUILayout.BeginArea(new Rect(350 + offsetX, 350 + offsetY, 150, 9999));
+                    GUILayout.BeginArea(new Rect(800 + offsetX, 350 + offsetY, 150, 9999));
                     manager.networkAddress = GUILayout.TextField(manager.networkAddress);
                     GUILayout.EndArea();
                     GUILayout.BeginArea(new Rect(100 + offsetX, 100 + offsetY, 150, 9999));
@@ -106,7 +106,7 @@ namespace Mirror
             // client ready
             if (NetworkClient.isConnected && !ClientScene.ready)
             {
-                if (GUILayout.Button(""))
+                if (GUILayout.Button("asd"))
                 {
                     ClientScene.Ready(NetworkClient.connection);
 

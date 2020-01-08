@@ -4,10 +4,8 @@ using UnityEngine;
 
 public class UsePotion : MonoBehaviour
 {
-    
-
     public void Use() {
-        Health.healthlife +=20f;
+        //Health.currenthealth += 20;
         Destroy(gameObject);
     }
 }

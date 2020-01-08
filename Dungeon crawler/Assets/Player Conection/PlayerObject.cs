@@ -6,7 +6,10 @@ using Mirror;
 public class PlayerObject : NetworkBehaviour
 {
 
-
+    void Awake()
+    {
+        DontDestroyOnLoad(this);
+    }
     //public GameObject cam;
     private float movementSpeed = 5f;
     public GameObject projectile;
@@ -14,6 +17,8 @@ public class PlayerObject : NetworkBehaviour
 
     public static bool GamePause = false;
     public GameObject PauseMenu;
+    public Animator animator;
+
     void Start()
     {
         playerPos = GetComponent<Transform>();
@@ -26,6 +31,8 @@ public class PlayerObject : NetworkBehaviour
         {
             return;
         }
+        animator.SetFloat("Horizontal", Input.GetAxis("Horizontal"));
+        
         float x = Input.GetAxis("Horizontal") * Time.deltaTime;
         float z = Input.GetAxis("Vertical") * Time.deltaTime;
 
@@ -35,6 +42,21 @@ public class PlayerObject : NetworkBehaviour
 
         this.transform.position += tempVect;
 
+        Vector3 characterscale = transform.localScale;
+        if (Input.GetAxis("Horizontal") < 0)
+        {
+            characterscale.x = -1;
+        }
+        if (Input.GetAxis("Horizontal") > 0)
+        {
+            characterscale.x = 1;
+        }
+        transform.localScale = characterscale;
+        /*
+        animator.SetFloat("Horizontal", Input.GetAxis("Horizontal"));
+        Vector3 horizontal = new Vector3(Input.GetAxis("Horizontal"), 0.0f, 0.0f);
+        transform.position = transform.position + horizontal * Time.deltaTime;
+        */
         if (Input.GetMouseButtonDown(0))
         {
             CmdFire();

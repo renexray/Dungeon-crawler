@@ -45,7 +45,7 @@ public class NetworkCustom : NetworkManager
 
     public override void OnClientSceneChanged(NetworkConnection conn)
     {
-        //base.OnClientSceneChanged(conn);
+        base.OnClientSceneChanged(conn);
     }
 
     public void btn1()
@@ -65,34 +65,21 @@ public class NetworkCustom : NetworkManager
         chosenCharacter = 2;
         choosinghero.SetActive(false);
     }
-
-
-    public void StartupHost()
+    public void loadbtn1()
     {
-        //SetPort();
-        setIPAddress();
-        NetworkManager.singleton.StartHost();
+        chosenCharacter = 0;
+        choosinghero.SetActive(false);
     }
-    public void JoinGame()
-    {
-        setIPAddress();
-        NetworkManager.singleton.StartClient();
-    }
-    void setIPAddress() 
-    {
-        string ipAddress = GameObject.Find("InputFieldIPAddress").transform.FindChild("Text").GetComponent<Text>().text;
-        NetworkManager.singleton.networkAddress = ipAddress;
-    }
-    /*void SetPort() 
-    {
-        NetworkManager.singleton.networkAddress = "localhost";
-    }*/
-    void Menuschenebuttons() 
-    {
-        GameObject.Find("ButtonStartHost").GetComponent<Button>().onClick.RemoveAllListeners();
-        GameObject.Find("ButtonStartHost").GetComponent<Button>().onClick.AddListener(StartupHost);
 
-        GameObject.Find("ButtonJoinGame").GetComponent<Button>().onClick.RemoveAllListeners();
-        GameObject.Find("ButtonJoinGame").GetComponent<Button>().onClick.AddListener(JoinGame);
+    public void loadbtn2()
+    {
+        chosenCharacter = 1;
+        choosinghero.SetActive(false);
+    }
+
+    public void loadbtn3()
+    {
+        chosenCharacter = 2;
+        choosinghero.SetActive(false);
     }
 }

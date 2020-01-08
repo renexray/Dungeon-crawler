@@ -6,11 +6,41 @@ using Mirror;
 
 public class Health : NetworkBehaviour
 {
-    Image life;
-    float maxHealth=100f;
-    public static float healthlife;
-    public GameObject GameOver;
-    void Start()
+    public const int maxHealth = 300;
+    [SyncVar (hook = "OnTakedamage")] public int currenthealth = maxHealth;
+    //public static float healthlife;
+    public RectTransform healthbar;
+    public void Takedamage(int amount)
+    {
+        if (!isServer)
+        {
+            return;
+        }
+
+        currenthealth -= amount;
+        if (currenthealth <= 0)
+        {
+            currenthealth = maxHealth;
+            RpcRespawn();
+
+        }
+        healthbar.sizeDelta = new Vector2(currenthealth/2, healthbar.sizeDelta.y);
+    }
+
+    void OnTakedamage(int health)
+    {
+        healthbar.sizeDelta = new Vector2(health/2, healthbar.sizeDelta.y);
+    }
+    [Client]
+    void RpcRespawn()
+    {
+        if(isLocalPlayer)
+        {
+            levelcount.scorevalue = 0;
+            transform.position = Vector3.zero;
+        }
+    }
+    /*void Start()
     {
         life =GetComponent<Image>();
         healthlife = maxHealth;
@@ -22,9 +52,10 @@ public class Health : NetworkBehaviour
         life.fillAmount = healthlife / maxHealth;
         if (healthlife <= 0f) 
         {
-            RpcRespaw();
+            transform.position = Vector3.zero;
+            levelcount.scorevalue = 1;
         }
-    }
+    }*/
     public void SaveFile()
     {
         SaveToFile.SaveFile(this);
@@ -32,14 +63,6 @@ public class Health : NetworkBehaviour
     public void LoadFile()
     {
         Saving data = SaveToFile.LoadFile();
-        healthlife = data.healthlife;
-    }
-
-    [Client]
-    void RpcRespaw() {
-        if (!base.hasAuthority)
-        {
-            transform.position = Vector3.zero;
-        }
+        currenthealth = data.healthlife;
     }
 }

@@ -25,6 +25,6 @@ public class Playername : NetworkBehaviour
     [ClientRpc]
     void RpcSetPlayerName(string name)
     {
-        gameObject.transform.FindChild("Canvas").transform.FindChild("Text").GetComponent<Text>().text = name;
+        gameObject.transform.Find("Canvas").transform.Find("Text").GetComponent<Text>().text = name;
     }
 }
