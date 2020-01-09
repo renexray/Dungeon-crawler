@@ -1,96 +1,92 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Mirror;
+using UnityEngine.AI;
 
-public class EnemyMove : MonoBehaviour
+public class EnemyMove : NetworkBehaviour
 {
- 
-    int MoveSpeed = 4;
-    int MaxDist = 10;
-    int MinDist = 5;
+    public Transform target; //the enemy's target 
+    public float moveSpeed = 3f; //move speed 
+    public float rotationSpeed = 3f; //speed of turning 
+    public float range = 20f;
+    public float range2 = 20f;
+    private float stop = 10; 
+    public Transform myTransform; //current transform data of this enemy 
+    private LayerMask raycastLayer;
+
+                             //Shooting
+    public GameObject shot;
+    public Transform shotSpawn;
+    private int randomCount;
+    void Awake()
+    {
+        myTransform = transform; //cache transform data for easy access/preformance
+    }
 
     void Start()
     {
-
+        raycastLayer = 1 << LayerMask.NameToLayer("Player"); //target the player
     }
-    /*
+
+    void FixedUpdate()
+    {
+        moveToTarget();
+    }
     void Update()
     {
-        GameObject go = GameObject.FindGameObjectWithTag("Player");
-
-        if (Vector3.Distance(transform.position, go.transform.position) >= MinDist)
+        randomCount = Random.Range(1, 100);
+        if (!isServer)
+            return;
+        var distance2 = Vector3.Distance(myTransform.position, target.position);
+        if (distance2 <= range)
         {
-
-            transform.position += transform.forward * MoveSpeed * Time.deltaTime;
-
+            CmdDoFire();
         }
     }
-    */
-    
-    /*
-//Renderer m_Renderer;
-public float speed;
-private Transform target;
-
-    // Start is called before the first frame update
-    void Start()
+    void moveToTarget()
     {
-        //m_Renderer = GetComponent<Renderer>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if(GetComponent<Renderer>().isVisible){
-        target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
-        transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
-        }
-        //transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
-    }
-
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        speed = 0;
-        speed = 2;
-        target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
-        transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
-    }
-    void OnTriggerExit2D(Collider2D other)
-    {
-        speed = 0;
-        speed = 2;
-        target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
-        transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
-        /*if (other.tag == "Player")
-    {
-        speed = 6;
-            Debug.Log(speed);
-    }
-    }*/
-    /*
- // Who we are chasing
-    private Transform Player;
-
-    // how fast we want the enemy to chase
-    public float ChaseSpeed = 5f;
-
-    // the range at which it detects Player
-    public float Range = 5f;
-
-    // what our current speed is (get only)
-    float CurrentSpeed;
-    */
-    /*private void Start()
-    {
-        //Player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
-    }
-    void Update()
-    {
-        // put this in under Update()
-        if (Vector2.Distance(transform.position, Player.position) <= Range) // check the distance between this game object and Player and continue if it's less than Range
+        if (!isServer)
+            return;
+        if (target != null && isServer)
         {
-            CurrentSpeed = ChaseSpeed * Time.deltaTime; // set the CurrentSpeed to ChaseSpeed and multiply by Time.deltaTime (this prevents it from moving based on FPS)
-            transform.position = Vector3.MoveTowards(transform.position, Player.position, CurrentSpeed);  // set this game objects position to the Player's position at the speed of CurrentSpeed
+            Collider[] distance = Physics.OverlapSphere(myTransform.position, range, raycastLayer);
+
+            if (distance.Length > 0)
+            {
+                int randomint = Random.Range(0, distance.Length);
+                target = distance[randomint].transform;
+            }
+
+            var distance1 = Vector3.Distance(myTransform.position, target.position);
+
+            if (distance1 <= range2 && distance1 >= range)
+            {
+                myTransform.rotation = Quaternion.Slerp(myTransform.rotation,
+                 Quaternion.LookRotation(target.position - myTransform.position), rotationSpeed * Time.deltaTime);
+            }
+            else if (distance1 <= range && distance1 > stop)
+            {
+                //move towards the player
+                myTransform.rotation = Quaternion.Slerp(myTransform.rotation,
+                Quaternion.LookRotation(target.position - myTransform.position), rotationSpeed * Time.deltaTime);
+                myTransform.position += myTransform.forward * moveSpeed * Time.deltaTime;
+            }
+            else if (distance1 <= stop)
+            {
+                myTransform.rotation = Quaternion.Slerp(myTransform.rotation,
+                 Quaternion.LookRotation(target.position - myTransform.position), rotationSpeed * Time.deltaTime);
+            }
         }
-    }*/
+    }
+    [Command]
+    void CmdDoFire()
+    {
+        if (randomCount < 2)
+        {
+            GameObject instance = (GameObject)Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
+            GetComponent<AudioSource>().Play();
+            NetworkServer.Spawn(instance);
+        }
+    }
 }

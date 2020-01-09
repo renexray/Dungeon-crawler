@@ -106,7 +106,7 @@ namespace Mirror
             // client ready
             if (NetworkClient.isConnected && !ClientScene.ready)
             {
-                if (GUILayout.Button("asd"))
+                if (GUILayout.Button(""))
                 {
                     ClientScene.Ready(NetworkClient.connection);
 
