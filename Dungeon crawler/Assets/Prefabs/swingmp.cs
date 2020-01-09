@@ -12,14 +12,20 @@ public class swingmp : MonoBehaviour
     public LayerMask whatIsEnemies;
     public float attackRange;
     public int damage;
-
+    public Animator playeranim;
+    void Start()
+    {
+        playeranim = GetComponent<Animator>();
+     }
     void Update()
     {
         if (timeBtwAttack <= 0)
         {
             // then you can attack
-            if (Input.GetKey(KeyCode.Space))
+            if (Input.GetMouseButtonDown(0))
             {
+                playeranim.SetTrigger("Knight");
+                //playeranim.SetTrigger("Knight");
                 Collider2D[] enemiesToDamge = Physics2D.OverlapCircleAll(attackPos.position, attackRange, whatIsEnemies);
                 for (int i = 0; i < enemiesToDamge.Length; i++)
                 {
@@ -36,11 +42,11 @@ public class swingmp : MonoBehaviour
                 }
             }
         }
+    }
 
         void OnDrawGizmosSelected()
         {
             Gizmos.color = Color.red;
             Gizmos.DrawWireSphere(attackPos.position, attackRange);
         }
-    }
 }

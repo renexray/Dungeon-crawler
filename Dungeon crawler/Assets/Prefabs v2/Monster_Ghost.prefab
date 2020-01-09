@@ -117,8 +117,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65b11f8732ba73f48a90aa10320961e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ChaseSpeed: 5
-  Range: 5
+  syncMode: 0
+  syncInterval: 0.1
+  target: {fileID: 0}
+  moveSpeed: 3
+  range: 20
+  range2: 20
+  myTransform: {fileID: 8606679970558195441}
 --- !u!114 &8606679970558195453
 MonoBehaviour:
   m_ObjectHideFlags: 0
